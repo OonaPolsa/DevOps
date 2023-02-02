@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 env:
-  Azure_WEBAPP_NAME: devopsWebAppSiivo
+  Azure_WEBAPP_NAME: Jahaa
   NODE_VERSION: '14.x'                # set this to the node version to use
 
 jobs:
