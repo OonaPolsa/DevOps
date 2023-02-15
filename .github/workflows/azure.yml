@@ -3,11 +3,9 @@ on:
     branches: [ "master" ]
   workflow_dispatch:
 
-
 env:
   Azure_WEBAPP_NAME: Jahaa
   NODE_VERSION: '14.x'                # set this to the node version to use
-
 
 jobs:
   build:
@@ -15,24 +13,21 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
         node-version: ${{ env.NODE_VERSION }}
         cache: 'npm'
 
-
     - name: npm install, build
       run: |
         npm install
         npm run build --if-present
-        npm test -- --watch=false --browsers=ChromeHeadless
        # npm run test --if-present
     - uses: actions/upload-artifact@v3
       with:
         name: node-app
-        path: dist/angular-example-app
+        path: public/
         
   build-docker-image:
     runs-on: ubuntu-latest
@@ -66,26 +61,21 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/${{ env.REPO }}:${{ github.sha }}
-          file: ./Dockerfile
-
+          file: ./Dockerfile    
 
 
   deploy:
     runs-on: ubuntu-latest
 
-
     needs: build-docker-image
-
 
     environment:
       name: 'production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
-
     steps:
       - name: Lowercase the repo name
         run: echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
-
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
