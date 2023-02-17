@@ -12,7 +12,7 @@ describe('FeedbackComponent', () => {
   let component: FeedbackComponent;
   let fixture: ComponentFixture<FeedbackComponent>;
   let router: Router;
-  let routerSpy = { navigate: jasmine.createSpy('navigate') };
+  const routerSpy = { navigate: jasmine.createSpy('navigate') };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
