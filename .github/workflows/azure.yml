@@ -24,7 +24,7 @@ on:
   workflow_dispatch:
 
 env:
-  Azure_WEBAPP_NAME: docker-web
+  Azure_WEBAPP_NAME: devopsteht
   #testausta:
   # AZURE_WEBAPP_PACKAGE_PATH: './dist/angulargithubaction'
   NODE_VERSION: '14.x'                # set this to the node version to use
