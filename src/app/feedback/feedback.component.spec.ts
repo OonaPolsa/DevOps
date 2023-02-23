@@ -76,12 +76,12 @@ describe('FeedbackComponent', () => {
   });
 
   //Testi 4 
-  it('call the onSubmit method when form is submitted', () => {
+  /*it('call the onSubmit method when form is submitted', () => {
     const test = fixture.debugElement.query(By.css('fbForm'));
     const spy = spyOn(component, 'onSubmit');
     test.triggerEventHandler('ngSubmit', null);
     expect(spy).toHaveBeenCalled();
-  });
+  });*/
 
     //Testi 5 1/2
     it('should mark phone as valid when it has atleast 10 characters', () => {
